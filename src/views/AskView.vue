@@ -1,9 +1,21 @@
 <template>
-  <div>Ask</div>
+  <div>{{ ask }}</div>
 </template>
 
 <script>
-export default {};
+import { fetchAskList } from '../api/index.js';
+
+export default {
+  data() {
+    return {
+      ask: [],
+    };
+  },
+  async created() {
+    const { data: askListData } = await fetchAskList();
+    this.ask = askListData;
+  },
+};
 </script>
 
 <style></style>
