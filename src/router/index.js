@@ -1,8 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import NewsView from '../views/NewsView.vue';
-import AskView from '../views/AskView.vue';
-import JobsView from '../views/JobsView.vue';
+import { NewsView, AskView, JobsView, UserView, ItemView } from '../views';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -24,6 +22,14 @@ const router = new VueRouter({
     {
       path: '/jobs',
       component: JobsView,
+    },
+    {
+      path: '/user',
+      component: UserView,
+    },
+    {
+      path: '/item',
+      component: ItemView,
     },
   ],
 });
