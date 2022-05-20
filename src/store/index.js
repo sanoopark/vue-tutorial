@@ -8,6 +8,12 @@ const store = new Vuex.Store({
   state: {
     news: [],
   },
+  getters: {
+    // vuex에서 computed와 같이 사용
+    fetchedUsers(state) {
+      return state.users;
+    },
+  },
   mutations: {
     SET_NEWS(state, data) {
       state.news = data;

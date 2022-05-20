@@ -1,17 +1,28 @@
 <template>
   <div>
-    <div v-for="user in this.$store.state.news" :key="user.id">
+    <div v-for="user in fetchedUsers" :key="user.id">
       {{ user.title }}
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  data() {
-    return {
-      users: [],
-    };
+  computed: {
+    // #3
+    ...mapGetters(['fetchedUsers']),
+
+    // #2
+    // ...mapState({
+    //   users: state => state.users,
+    // }),
+
+    // #1
+    // news() {
+    //   return this.$store.state.users;
+    // },
   },
   created() {
     this.$store.dispatch('FETCH_NEWS');
